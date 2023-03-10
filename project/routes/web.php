@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\ClientController::class, 'index']);
 Route::post('/manager', [\App\Http\Controllers\ClientController::class, 'sendRequest'])->name('sendRequest');
-//Route::get('/login',[\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/login',[\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login_process',[\App\Http\Controllers\AuthController::class, 'login'])->name('login_process');

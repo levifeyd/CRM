@@ -18,12 +18,14 @@ class ManagerSeeder extends Seeder
     {
         $manager = Manager::query()->create([
             'username'=>'Artem',
-            'password'=>bcrypt('qwerty'),
+//            'password'=>bcrypt('qwerty'),
+            'password'=>'qwerty',
             'login_date'=>Carbon::createFromFormat('Y-m-d', '2023-03-10')
         ]);
         $manager = Manager::query()->create([
             'username'=>'Polina',
-            'password'=>bcrypt('qwerty'),
+//            'password'=>bcrypt('qwerty'),
+            'password'=>'qwerty',
             'login_date'=>Carbon::createFromFormat('Y-m-d', '2023-03-10')
         ]);
     }

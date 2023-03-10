@@ -37,6 +37,9 @@
                 <button type="submit" class="btn btn-primary mt-4">Отправить заявку</button>
             </form>
         </div>
+        <div class="card-body">
+            <h3 class="text-gray-700 text-3xl font-medium">Вход в CRM</h3>
+            <a href="{{ route('login') }}" class="btn btn-success mt-4">Войти</a>
+        </div>
     </div>
-    <a href="{{ route('add_answer', $request->id) }}" class="btn btn-success mt-4">CRM</a>
 @endsection

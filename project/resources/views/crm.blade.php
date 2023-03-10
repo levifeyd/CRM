@@ -16,8 +16,8 @@
                             @if(isset($request->comment))
                                 <h8 class="card-header">Комментарий к заявке: {{$clients->comment}}</h8>
                             @endif
-                            <a href="#" class="btn btn-success mb-4">Добавить новую заявку</a>
                         </div>
+                        <a href="#" class="btn btn-success mb-4">Добавить комментраий к заявке</a>
                 @endforeach
                 </div>
             </div>

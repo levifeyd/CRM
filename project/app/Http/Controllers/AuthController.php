@@ -34,7 +34,6 @@ class AuthController extends Controller
         return redirect()->back()->with('status','Пользотваель не найден');
     }
     public function logout() {
-        auth("web")->logout();
         return redirect(route("login"));
     }
 }

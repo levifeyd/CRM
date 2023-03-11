@@ -6,18 +6,16 @@
         <div class="container mt-6">
             <div class="row">
                 <div class="col-md-12">
-                @foreach($clients as $clients)
-                        <div class="card mb-4">
-                                <h8 class="card-header">Заявка №{{$clients->id}}</h8>
-                                <h8 class="card-header">Имя клиента: {{$clients->name}}</h8>
-                                <h8 class="card-header">Фамилия клиента: {{$clients->lastName}}</h8>
-                                <h8 class="card-header">Телефон клиента: {{$clients->phone}}</h8>
-                                <h8 class="card-header">Email клиента: {{$clients->email}}</h8>
-                            @if(isset($request->comment))
-                                <h8 class="card-header">Комментарий к заявке: {{$clients->comment}}</h8>
+                @foreach($clients as $client)
+                    @if($userId == 1)
+                        @if($client->id % 2 != 0)
+                            @include('client.item')
+                        @endif
+                        @elseif($userId == 2)
+                            @if($client->id % 2 == 0)
+                                @include('client.item')
                             @endif
-                        </div>
-                        <a href="#" class="btn btn-success mb-4">Добавить комментраий к заявке</a>
+                    @endif
                 @endforeach
                 </div>
             </div>

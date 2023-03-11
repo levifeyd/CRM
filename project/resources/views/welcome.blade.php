@@ -9,7 +9,7 @@
     <div class="container mx-auto px-6 py-8">
         <h3 class="text-gray-700 text-3xl font-medium">Оставить заявку</h3>
         <div class="container mt-6">
-            <form method="post" action="{{ route('sendRequest') }}">
+            <form method="post" action="{{ route('send_request') }}">
                 @csrf
                 <label for="exampleFormControlTextarea1">Введите ваше имя</label>
                 <input name="name" id="name" type="text" class="form-control @error('name') border-red-500 @enderror"/>

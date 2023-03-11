@@ -21,4 +21,23 @@ class ClientController extends Controller
         Client::query()->create($input);
         return redirect()->back()->with('status','Заявка принята!');
     }
+    public function addComment($id) {
+        $client = Client::query()->findOrFail($id);
+        return view('comment.comment')->with([
+            'client'=>$client
+        ]);
+    }
+    public function updateComment($id, Request $request) {
+        $request->validate([
+            'comment'=>'required'
+        ]);
+        $input = $request->all();
+        $comment = Client::query()->where('id', $id)->pluck('comment')->toArray();
+        if($comment[0] == null) {
+            Client::query()->where('id', $id)->update(['comment'=>$input['comment']]);
+        } else {
+            Client::query()->where('id', $id)->update(['comment'=>$comment[0].' '.$input['comment']]);
+        }
+        return redirect()->back()->with('status','Комментарий добавлен!');
+    }
 }

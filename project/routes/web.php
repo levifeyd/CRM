@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[\App\Http\Controllers\ClientController::class, 'index']);
-Route::post('/manager', [\App\Http\Controllers\ClientController::class, 'sendRequest'])->name('sendRequest');
-Route::get('/login',[\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login_process',[\App\Http\Controllers\AuthController::class, 'login'])->name('login_process');
+Route::post('/manager', [\App\Http\Controllers\ClientController::class, 'sendRequest'])
+    ->name('send_request');
+Route::get('/login',[\App\Http\Controllers\AuthController::class, 'showLoginForm'])
+    ->name('login');
+Route::post('/login_process',[\App\Http\Controllers\AuthController::class, 'login'])
+    ->name('login_process');
+Route::get('/add_comment/{id}', [\App\Http\Controllers\ClientController::class, 'addComment'])
+    ->name('add_comment');
+Route::put('update/{id}', [\App\Http\Controllers\ClientController::class, 'updateComment'])
+    ->name('update_comment');

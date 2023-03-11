@@ -24,14 +24,14 @@ class AuthController extends Controller
         foreach ($managers as $manager) {
             if (strcmp($manager->username, $name) == 0 && strcmp($manager->password, $password) == 0) {
                 $clients = Client::query()->orderBy("created_at", "desc")->get();
+                $userId = Manager::query()->where('username', $manager->username)->pluck('id')->get(0);
                 return view('crm')->with([
-                    'clients'=>$clients
+                    'clients'=>$clients,
+                    'userId'=>$userId
                 ]);
             }
         }
-
-        return redirect(route('login'))->withErrors(["username"=> "Пользотваель не найден,
-                     либо данные введены не правильно"]);
+        return redirect()->back()->with('status','Пользотваель не найден');
     }
     public function logout() {
         auth("web")->logout();

@@ -37,9 +37,11 @@
                 <button type="submit" class="btn btn-primary mt-4">Отправить заявку</button>
             </form>
         </div>
-        <div class="card-body">
-            <h3 class="text-gray-700 text-3xl font-medium">Вход в CRM</h3>
-            <a href="{{ route('login') }}" class="btn btn-success mt-4">Войти</a>
+        <div class="card-body mt-6">
+            <h3 class="text-gray-700 text-2xl font-medium">Вход в CRM</h3>
+            <div class="container mt-2">
+                <a href="{{ route('login') }}" class="btn btn-success mt-2">Войти</a>
+            </div>
         </div>
     </div>
 @endsection

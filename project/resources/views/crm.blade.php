@@ -3,6 +3,7 @@
 @section('content')
     @include('partials.header')
     <div class="container mx-auto px-6 py-8">
+        <h4 class="font-bold text-2xl text-gray-800">Заявки</h4>
         <div class="container mt-6">
             <div class="row">
                 <div class="col-md-12">

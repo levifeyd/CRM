@@ -23,7 +23,7 @@ class ClientController extends Controller
     }
     public function addComment($id) {
         $client = Client::query()->findOrFail($id);
-        return view('comment.comment')->with([
+        return view('comment.add_comment')->with([
             'client'=>$client
         ]);
     }
@@ -31,12 +31,11 @@ class ClientController extends Controller
         $request->validate([
             'comment'=>'required'
         ]);
-        $input = $request->all();
         $comment = Client::query()->where('id', $id)->pluck('comment')->toArray();
-        if($comment[0] == null) {
-            Client::query()->where('id', $id)->update(['comment'=>$input['comment']]);
+        if ($comment[0] == null) {
+            Client::query()->where('id', $id)->update(['comment'=>$request->get('comment')]);
         } else {
-            Client::query()->where('id', $id)->update(['comment'=>$comment[0].' '.$input['comment']]);
+            Client::query()->where('id', $id)->update(['comment'=>$comment[0].' '.$request->get('comment')]);
         }
         return redirect()->back()->with('status','Комментарий добавлен!');
     }

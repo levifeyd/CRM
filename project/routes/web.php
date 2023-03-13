@@ -14,14 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[\App\Http\Controllers\ClientController::class, 'index']);
-Route::post('/manager', [\App\Http\Controllers\ClientController::class, 'sendRequest'])
-    ->name('send_request');
-Route::get('/login',[\App\Http\Controllers\AuthController::class, 'showLoginForm'])
-    ->name('login');
-Route::get('/logout',[\App\Http\Controllers\AuthController::class, 'logout'])
-    ->name('logout');
-Route::post('/login_process',[\App\Http\Controllers\AuthController::class, 'login'])
-    ->name('login_process');
+Route::post('/manager', [\App\Http\Controllers\ClientController::class, 'sendRequest'])->name('send_request');
+Route::get('/manager',[\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+
+Route::get('/logout',[\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+Route::post('/home',[\App\Http\Controllers\AuthController::class, 'login'])->name('login_process');
+
 Route::get('/add_comment/{id}', [\App\Http\Controllers\ClientController::class, 'addComment'])
     ->name('add_comment');
 Route::put('update/{id}', [\App\Http\Controllers\ClientController::class, 'updateComment'])
